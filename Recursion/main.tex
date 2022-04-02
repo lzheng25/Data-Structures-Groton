@@ -1,0 +1,142 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Data Structures, Problem Set on Induction}
+\author{Lucas Zheng}
+\date{January 12 2021}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Zero: Recurrence Relations}
+\begin{enumerate}[i.]
+    \item Recurrence relation for $a_n$:
+    $$a_0 = 1$$
+    $$a_{n+1} = 2a_n$$
+    \\Prove by induction that for any $n \in \mathbb{N}$, we have $a_n = 2^n$.
+    \\\textbf{Base Case:} $n = 0 \to a_0 = 1$ and $2^0 = 1$, both are equal to 1 so base case is valid.
+    \\\textbf{Inductive Case:} Assume it is true for $0 \leqslant n \leqslant k$, that:
+    $$a_n = 2^n$$
+    \\Show it is true for $n = k + 1$, that:
+    $$a_{k+1} = 2^{k+1}$$
+    \\Proof:
+    $$a_{k+1} = 2a_k$$
+    $$a_{k+1} = 2(2^k)$$
+    $$a_{k+1} = 2^{k+1} \;\;\checkmark$$
+    By showing $a_{k+1} = 2^{k+1}$, we have proved, by induction, that $a_n = 2^n$ holds true for any $n \in \mathbb{N}$.
+    
+    \item Here are 2 recurrence relations:\\
+    \begin{minipage}{0.45\textwidth}
+        \begin{align*}
+            b_0 = 1\\
+            b_{n+1} = 2b_n - 1
+        \end{align*}
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+        \begin{align*}
+            c_0 = 1\\
+            c_{n+1} = 2c_n + 1
+        \end{align*}
+    \end{minipage}
+    
+    The first five terms of sequence $b_n$ are 1, 1, 1, 1, 1. My hypothesis is:
+    $$b_n = 1, \; \text{for all} \; n \in \mathbb{N}$$
+    \textbf{Base Case:} $n = 0 \to b_0 = 1$ and $2(1) - 1 = 1$, both are equal to 1 so base case is valid.
+    \\\textbf{Inductive Case:} Assume it is true for $0 \leqslant n \leqslant k$, that:
+    $$b_k = 1$$
+    \\Show it is true for $n = k + 1$, that:
+    $$b_{k+1} = 1$$
+    \\Proof:
+    $$b_{k+1} = 2b_k - 1$$
+    $$b_{k+1} = 2(1) - 1$$
+    $$b_{k+1} = 2 - 1$$
+    $$b_{k+1} = 1 \;\;\checkmark$$
+    By showing $b_{k+1} = 1$, we have proved, by induction, that $b_n = 1$ holds true for any $n \in \mathbb{N}$.
+    
+    The first five terms of sequence $c_n$ are 1, 3, 7, 15, 31. My hypothesis is:
+    $$c_n = 2^{n+1} - 1, \; \text{for all} \; n \in \mathbb{N}$$
+    \textbf{Base Case:} $n = 0 \to c_0 = 1$ and $2^1 - 1 = 1$, both are equal so base case is valid.
+    \\\textbf{Inductive Case:} Assume it is true for $0 \leqslant n \leqslant k$, that:
+    $$c_n = 2^{n+1} - 1$$
+    \\Show it is true for $n = k + 1$, that:
+    $$c_{k+1} = 2^{k+2} - 1$$
+    \\Proof:
+    $$c_{k+1} = 2c_k + 1$$
+    $$c_{k+1} = 2(2^{k+1} - 1) + 1$$
+    $$c_{k+1} = 2^{k+2} - 2 + 1$$
+    $$c_{k+1} = 2^{k+2} - 1 \;\;\checkmark$$
+    By showing $c_{k+1} = 2^{k+2} - 1$, we have proved, by induction, that $c_n = 2^{n+1} - 1$ holds true for any $n \in \mathbb{N}$.
+\end{enumerate}
+
+\section*{Problem One: Medicine Half-Lives}
+\begin{enumerate}[i.]
+    \item Recurrence relation for $c_n$
+    $$c_0 = 1$$
+    $$c_{n+1} = \frac{c_n}{2} + 1$$
+    
+    \item Prove, by induction, that $c_n = (2 - 1/2^n)$mg for all $n \in \mathbb{N}$ 
+    \\\textbf{Base Case:} $n = 0 \to c_0 = 1$ and $c_0 = (2 - 1/2^0) = (2 - 1/1) = 1$, both are equal so base case is valid.
+    \\\textbf{Inductive case:} Assume it is true for $0 \leqslant n \leqslant k$, that:
+    $$c_n = (2 - 1/2^n)$$
+    \\Show it is true for $n = k + 1$, that:
+    $$c_{k+1} = (2 - 1/2^{k+1})$$
+    \\Proof:
+    $$c_{k+1} = \frac{c_k}{2} + 1$$
+    $$c_{k+1} = \frac{(2 - 1/2^k)}{2} + 1$$
+    $$c_{k+1} = 1 - \frac{1}{2(2^k)} + 1$$
+    $$c_{k+1} = (2 - 1/2^{k+1}) \;\;\checkmark$$
+    By showing $c_{k+1} = (2 - 1/2^{k+1})$, we have proved, by induction, that $c_n = (2 - 1/2^{n})$ holds true for any $n \in \mathbb{N}$.
+\end{enumerate}
+
+\section*{Problem Two: A Lot of Rocks}
+Let's say that \textit{a lot of rocks} is a number of rocks that isn't zero and where if you remove one of the rocks, you're left with a lot of rocks (if there really are a lot of rocks, removing one rock shouldn't make a difference). Prove by induction that no finite number of rocks is a lot of rocks.
+\\
+\\We can prove that no finite number of rocks is a lot of rocks by setting an inequality as our hypothesis. Since no finite number of rocks is a lot of rocks, removing one rock from $n$ amount of rocks makes difference, and thus is less than $n$ rocks.
+$$n - 1 < n, \; \text{for all} \; n \in \mathbb{N}$$
+\\
+\\\textbf{Base Case:} $n = 1 \to 1 - 1 < 1 \to 0 < 1$, 0 is less than 1 so base case is valid.
+\\\textbf{Inductive Case:} Assume there exists some $k$ where $1 \leqslant n \leqslant k$, that:
+$$n_k - 1 < n_k$$
+Show it is true for $n = k + 1$, that:
+$$n_{k+1} - 1 < n_{k+1}$$
+Proof:
+$$(k + 1) - 1 < k + 1$$
+$$k < k + 1$$
+Now subtract 1 from both sides:
+$$k - 1 < k$$
+Now, having subtracted 1 from both sides, we know from our inductive hypothesis that this inequality is indeed true, which proves that $n - 1 < n, \; \text{for all} \; n \in \mathbb{N}$. Ultimately, his proves that no finite number of rocks is \textit{a lot of rocks}.
+
+
+
+\section*{Problem Three: Nim}
+$Nim$ is a family of games played by two players. The game begins with several piles of stones
+that are shared between the two players. Players alternate taking turns removing any nonzero
+number of stones from any single pile of their choice. If at the start of a player's turn all the piles are empty, then that player loses the game. Prove, by induction, that if the game is played with just two piles of stones, each of which begins with exactly the same number of stones, then the second player can always win the game if she plays correctly.
+\\
+\\The strategy for Player 2 to win is to mirror Player 1's moves in the opposite pile. 
+\\
+\\\textbf{Base Case:} Each pile has 1 stone. Player 1 has to take a stone from one of the piles, then Player 2 takes the other stone in the other pile, leaving zero stones left. Since there are no stones left on Player 1's turn, Player 2 wins the game, proving our base case.
+\\
+\\\textbf{Inductive Case:} Assume there exists some $k$ such that if $1 \leqslant n \leqslant k$, then Player 2 will always win if $Nim$ is played with 2 piles of $n$ stones each.
+\\
+\\Prove that the statement holds for a game of $Nim$ with $k + 1$ stones in each pile:
+\\
+\\If Player 1 removes all $k + 1$ stones from one pile, Player 2 just needs to remove $k + 1$ stones from the other pile to win since no stones will be left. Since Player 1 cannot take zero stones, our endpoints or extreme cases are settled. Now if Player 1 decides to take $1 \leqslant n \leqslant k$ stones from one pile, Player 2 can take away the same amount of stones from the other pile. Now, each pile has $k$ or less than stones, and by my inductive hypothesis Player 2 can always win in these scenarios, proving that Player 2 can win every time using the "mirror" strategy.
+
+\section*{Problem Four: Pie Fights!}
+Here's how a pie fight works: $n \geqslant 2$ people, each of whom has a pie in their hands, stands in a big open field. Everyone then throws their pie at the person closest to them. (To make sure that “the person closest to them” is well-defined, let's assume that no two pairs of people are standing at the same distance from one another). In the end, lots of people will end up covered in pie.
+\\
+\\Here's a surprising result: in any pie fight with an odd number of people, at least one person won't have a pie thrown at them. Prove this result by induction.
+\\
+\\\textbf{Base Case:} Let's have a pie fight with 3 people. By chance, 2 of the 3 will be closer to each other than they are with the third person, since no two pairs of people are standing at the same distance from one another. Thus, two of them get pied (they pie each other), leaving one unscathed. This proves that with the simplest odd-numbered pie fight of 3 people, at least one person won't get pied.
+\\
+\\\textbf{Inductive Case:} Assume there exists some $k$, where $0 \leqslant n \leqslant k$, such that in pie fights with $2n + 3$ (for all $n \in \mathbb{N}$) people, at least one person won't get pied. $2n + 3$ is the mathematical representation of an odd-numbered pie fight.
+\\
+\\Prove that the statement holds for a pie fight where $n = k + 1$.
+\\
+\\A fight where $n = k + 1$ includes $2(k + 1) + 3 = 2k + 5$ people, which is two more people than a fight where $n = k$, which has $2k + 3$ people. Since no two pairs of people are standing at the same distance from one another, there will be two people that are closest to each other than to any other person. Thus, they will pie each other. We can treat these two people like the two extra people mentioned in the first sentence. Since we know they will pie each other, we can disregard them and we see that there are $2k + 5 - 2 = 2k + 3$ people left to consider. And by my inductive hypothesis, we know at least one person isn't pied in a fight with $2k +3$ people. 
+\end{document}

@@ -1,0 +1,12 @@
+FlytrapOP
+cyan
+ifenemy 6
+ifenemyleft 6
+ifenemyright 6
+left
+go 1
+infect
+go 1
+
+Infect only infects directly ahead so it cannot infect enemies to the left or right.
+

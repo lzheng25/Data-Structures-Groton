@@ -1,0 +1,15 @@
+Rover3
+cyan
+ifenemy 3
+go 5
+infect
+go 1
+ifenemy 1
+ifwall 10
+ifsame 10
+hop
+go 1
+left
+go 1
+
+

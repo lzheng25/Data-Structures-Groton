@@ -1,0 +1,34 @@
+Rover2
+green
+ifenemy 26
+ifwall 28
+ifsame 24
+hop
+ifenemy 26
+ifwall 28
+ifsame 24
+ifrandom 4
+right
+ifenemy 26
+ifwall 28
+ifsame 24
+ifrandom 4
+right
+ifenemy 22
+ifwall 28
+ifsame 24
+ifrandom 4
+right
+ifenemy 26
+ifwall 28
+ifsame 24
+ifrandom 4
+right
+go 1
+infect
+go 1
+right
+right
+go 1
+
+Hops forward one space, spins 90, 180, 270, or 360, infecting any creature in the way, then repeats. If it hits a wall, it comes back.

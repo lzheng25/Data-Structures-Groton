@@ -1,0 +1,135 @@
+import math
+mode=input("What type of problem? Select SSS, SAS, ASA, or SSA: ").strip()
+if mode=="SSS":
+    x=input("Do you want your asnwer in radians or degrees? Answer in lower case: ").strip()
+    if x=="degrees":
+        s1=float(input("Side 1: "))
+        s2=float(input("Side 2: "))
+        s3=float(input("Side 3: "))
+        #Law of cosines
+        a1=math.acos((s1**2-s2**2-s3**2)/(-2*(s2*s3)))
+        a2=math.acos((s2**2-s1**2-s3**2)/(-2*(s1*s3)))
+        a3=math.acos((s3**2-s1**2-s2**2)/(-2*(s1*s2)))
+        print("")
+        print("Answers...")
+        print("Angle 1: ",(math.degrees(a1)),"degrees")
+        print("Angle 2: ",(math.degrees(a2)),"degrees")
+        print("Angle 3: ",(math.degrees(a3)),"degrees")
+        print(" ")
+        print("FYI: Angle 1 corresponds to side 1, etc.")
+    elif x=="radians":
+        s1=float(input("Side 1: "))
+        s2=float(input("Side 2: "))
+        s3=float(input("Side 3: "))
+        #Law of cosines
+        a1=math.acos((s1**2-s2**2-s3**2)/(-2*(s2*s3)))
+        a2=math.acos((s2**2-s1**2-s3**2)/(-2*(s1*s3)))
+        a3=math.acos((s3**2-s1**2-s2**2)/(-2*(s1*s2)))
+        print("")
+        print("Answers...")
+        print("Angle 1: ",(a1),"radians")
+        print("Angle 2: ",(a2),"radians")
+        print("Angle 3: ",(a3),"radians")
+        print(" ")
+        print("FYI: Angle 1 corresponds to side 1, etc.")
+elif mode=="SAS":
+    x=input("Would you like to type angle in radians or degrees? Answer in lower case: ").strip()
+    if x=="radians":
+        s1=float(input("Side 1: "))
+        a2=float(input("Angle 2(in radians): "))
+        s3=float(input("Side 3: "))
+        #Law of Cosines
+        s2=math.sqrt(s1**2+s3**2-2*s1*s3*math.cos(a2))
+        #Law of Sines
+        a1=math.asin((s1*math.sin(a2))/s2)
+        a3=math.asin((s3*math.sin(a2))/s2)
+        print(" ")
+        print("Answers...")
+        print("Side 2: ",(s2))
+        print("Angle 1: ",(a1),"radians")
+        print("Angle 3: ",(a3),"radians")
+        print("")
+        print("FYI: Angle 1 corresponds to side 1, etc.")
+    elif x=="degrees":
+        s1=float(input("Side 1: "))
+        a2=math.radians(float(input("Angle 2 (in degrees): ")))
+        s3=float(input("Side 3: "))
+        #Law of Cosines
+        s2=math.sqrt(s1**2+s3**2-2*s1*s3*math.cos(a2))
+        #Law of Sines
+        a1=math.degrees(math.asin((s1*math.sin(a2))/s2))
+        a3=math.degrees(math.asin((s3*math.sin(a2))/s2))
+        print(" ")
+        print("Answers...")
+        print("Side 2: ",(s2))
+        print("Angle 1: ",(a1),"degrees")
+        print("Angle 3: ",(a3),"degrees")
+        print("")
+        print("FYI: Angle 1 corresponds to side 1, etc.")
+elif mode=="ASA":
+    x=input("Would you like to type angle in radians or degrees? Answer in lowercase: ").strip()
+    if x=="radians":
+        a1=float(input("Angle 1(in radians): "))
+        s2=float(input("Side 2: "))
+        a3=float(input("Angle 3(in radians): "))
+        #Law of Sines and no-choice theroem
+        s1=(math.sin(a1)*s2)/(math.sin((math.pi)-a1-a3))
+        s3=(math.sin(a3)*s2)/(math.sin((math.pi)-a1-a3))
+        a2=math.pi-a1-a3
+        print(" ")
+        print("Answers...")
+        print("Side 1: ",(s1))
+        print("Angle 2: ",(a2),"radians")
+        print("Side 3: ",(s3))
+        print("")
+        print("FYI: Angle 1 corresponds to side 1, etc.")
+    elif x=="degrees":
+        a1=math.radians(float(input("Angle 1(in degrees): ")))
+        s2=float(input("Side 2: "))
+        a3=math.radians(float(input("Angle 3(in degrees): ")))
+        #Law of Sines and no-choice theroem
+        s1=(math.sin(a1)*s2)/(math.sin((math.pi)-a1-a3))
+        s3=(math.sin(a3)*s2)/(math.sin((math.pi)-a1-a3))
+        a2=math.degrees(math.pi-a1-a3)
+        print("")
+        print("Answers...")
+        print("Side 1: ",(s1))
+        print("Angle 2: ",(a2),"degrees")
+        print("Side 3: ",(s3))
+        print(" ")
+        print("FYI: Angle 1 corresponds to side 1, etc.")
+elif mode=="SSA":
+    x=input("Would you like to type angle in radians or degrees? Answer in lowercase: ").strip()
+    if x=="radians":
+        s1=float(input("Side 1: "))
+        s2=float(input("Side 2: "))
+        a1=float(input("Angle 1(in radians): "))
+        #Law of Sines
+        a2=math.asin((s2*math.sin(a1))/s1)
+        a3=math.pi-a1-a2
+        s3=((math.sin(a3)*s1)/math.sin(a1))
+        print("")
+        print("Answers...")
+        print("Angle 2: ",(a2),"radians")
+        print("Angle 3: ",(a3),"radians")
+        print("Side 3: ",(s3))
+        print(" ")
+        print("FYI: Angle 1 corresponds to side 1, etc.")
+    elif x=="degrees":
+        s1=float(input("Side 1: "))
+        s2=float(input("Side 2: "))
+        a1=math.radians(float(input("Angle 1(in degrees): ")))
+        #Law of Sines
+        a2=math.degrees(math.asin((s2*math.sin(a1))/s1))
+        a3=math.degrees(math.pi-a1-math.radians(a2))
+        s3=((math.sin(math.radians(a3))*s1)/math.sin(a1))
+        print("")
+        print("Answers...")
+        print("Angle 2: ",(a2),"degrees")
+        print("Angle 3: ",(a3),"degrees")
+        print("Side 3: ",(s3),"degrees")
+        print(" ")
+        print("FYI: Angle 1 corresponds to side 1, etc.")
+else:
+    print("That is not option. Please rerun the program. Thank you.")
+    exit()

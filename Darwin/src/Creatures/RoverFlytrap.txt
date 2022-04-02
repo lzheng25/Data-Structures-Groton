@@ -1,0 +1,52 @@
+RoverFlyTrap
+magenta
+ifenemy 3
+go 5
+infect
+go 1
+ifenemy 1
+left
+ifenemy 1
+left
+ifenemy 1
+left
+ifenemy 1
+ifsame 34
+left
+ifenemy 1
+ifsame 34
+left
+ifenemy 1
+ifsame 34
+left
+ifenemy 1
+ifsame 34
+ifenemy 1
+ifwall 29  
+ifrandom 27
+left
+go 21
+hop
+go 21
+left
+ifenemy 1
+ifsame 34
+left
+go 21
+ifenemy 1
+ifempty 38
+left
+go 34
+infect
+ifrandom 34
+ifrandom 34
+ifrandom 34
+ifrandom 34
+ifrandom 34
+ifrandom 34
+go 1
+
+The flytrap sits in one place and spins.
+It infects anything which comes in front.
+Flytraps do well when they clump.
+

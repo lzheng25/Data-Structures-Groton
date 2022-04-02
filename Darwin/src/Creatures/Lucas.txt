@@ -1,0 +1,18 @@
+Lucas
+black
+ifrandom 7
+ifenemy 5
+left
+go 2
+infect
+go 2
+ifenemy 10
+right
+go 7
+infect
+go 7
+
+The flytrap sits in one place and spins.
+It infects anything which comes in front.
+Flytraps do well when they clump.
+

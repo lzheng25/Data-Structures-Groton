@@ -1,0 +1,12 @@
+Memory
+green
+set 10
+ifeq 10 3
+hop
+dec
+ifeq 10 3
+inc
+ifeq 10 8
+hop
+
+This creature, Memory, should hop twice.
